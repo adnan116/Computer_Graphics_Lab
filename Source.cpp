@@ -1,5 +1,5 @@
 #include <windows.h>  // for MS Windows
-#include <GL/glut.h>  // GLUT, include glu.h and gl.h
+#include <glut.h>  // GLUT, include glu.h and gl.h
 #include<math.h>>
 # define PI           3.14159265358979323846
 
@@ -106,6 +106,73 @@ void display() {
 	glVertex2f(0.15,0.3);
     glEnd();
 
+	glBegin(GL_QUADS);  //signal body
+	glColor3ub(160,160,160);
+	glVertex2f(.95,.1);
+	glVertex2f(.95,.5);
+	glVertex2f(.8,.5);
+	glVertex2f(.8,.1);
+	glEnd();
+
+	GLfloat x1=.87f; GLfloat y1=.2f; GLfloat radius1 =.05f;
+	int triangleAmount1 = 100; 
+
+//--------------------------Signal light--------------------
+
+	glBegin(GL_TRIANGLE_FAN);
+	glColor3ub(0,204,0);
+		glVertex2f(x1, y1); 
+		for(int i = 0; i <= triangleAmount1;i++) {
+			glVertex2f(
+		            x1 + (radius1 * cos(i *  twicePi / triangleAmount1)),
+			    y1 + (radius1 * sin(i * twicePi / triangleAmount1))
+			);
+		}
+	glEnd();
+
+
+
+	GLfloat x2=.87f; GLfloat y2=.32f; GLfloat radius2 =.05f;
+	int triangleAmount2 = 100; 
+
+
+	glBegin(GL_TRIANGLE_FAN);
+	glColor3ub(255,255,0);
+		glVertex2f(x2, y2); 
+		for(int i = 0; i <= triangleAmount2;i++) {
+			glVertex2f(
+		            x2 + (radius2 * cos(i *  twicePi / triangleAmount2)),
+			    y2 + (radius2 * sin(i * twicePi / triangleAmount2))
+			);
+		}
+	glEnd();
+
+
+
+	GLfloat x3=.87f; GLfloat y3=.44f; GLfloat radius3 =.05f;
+	int triangleAmount3 = 100; 
+
+
+	glBegin(GL_TRIANGLE_FAN);
+	glColor3ub(255,0,0);
+		glVertex2f(x3, y3); 
+		for(int i = 0; i <= triangleAmount3;i++) {
+			glVertex2f(
+		            x3 + (radius3 * cos(i *  twicePi / triangleAmount3)),
+			    y3 + (radius3 * sin(i * twicePi / triangleAmount3))
+			);
+		}
+	glEnd();
+
+
+
+	glBegin(GL_QUADS);  //signal  stand
+	glColor3ub(0,0,0);
+	glVertex2f(.89,-.3);
+	glVertex2f(.89,.1);
+	glVertex2f(.86,.1);
+	glVertex2f(.86,-.3);
+	glEnd();
 
 
 			 
