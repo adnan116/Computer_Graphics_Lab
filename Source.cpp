@@ -1,6 +1,6 @@
 #include <windows.h>  // for MS Windows
 #include <glut.h>  // GLUT, include glu.h and gl.h
-#include<math.h>>
+#include<math.h>
 # define PI           3.14159265358979323846
 
 
@@ -17,8 +17,8 @@ void display() {
     glVertex2f(-1,0.3);
     glEnd();
 
-	GLfloat x=-.7f; GLfloat y=.75f; GLfloat radius =.15f;
-	int triangleAmount = 20; //# of triangles used to draw circle
+	GLfloat x=-.8f; GLfloat y=.85f; GLfloat radius =.13f;
+	int triangleAmount = 100; //# of triangles used to draw circle
 
 	//GLfloat radius = 0.8f; //radius
 	GLfloat twicePi = 2.0f * PI;
@@ -35,7 +35,7 @@ void display() {
 	glEnd();
 
 	glBegin(GL_QUADS);		//grass
-    glColor3ub(0, 153, 51);
+    glColor3ub(153, 255, 51);
     glVertex2f(1,0.3);
 	glVertex2f(-1,0.3);
     glVertex2f(-1,0);
@@ -174,7 +174,107 @@ void display() {
 	glVertex2f(.86,-.3);
 	glEnd();
 
+	glBegin(GL_QUADS);  //tree
+	glColor3ub(128, 0, 0);
+	glVertex2f(-.4,0);
+	glVertex2f(-.4,.2);
+	glVertex2f(-.5,.2);
+	glVertex2f(-.5,0);
+	glEnd();
 
+	glBegin(GL_TRIANGLES);
+	glColor3ub(0, 102, 0);
+	glVertex2f(-.3,.15);
+	glVertex2f(-.45,.3);
+	glVertex2f(-.6,.15);
+	glEnd();
+
+	glTranslatef(0,.1,0);
+	glBegin(GL_TRIANGLES);
+	glColor3ub(0, 102, 0);
+	glVertex2f(-.3,.15);
+	glVertex2f(-.45,.3);
+	glVertex2f(-.6,.15);
+	glEnd();
+	glLoadIdentity();
+
+	glTranslatef(0,.2,0);
+	glBegin(GL_TRIANGLES);
+	glColor3ub(0, 102, 0);
+	glVertex2f(-.3,.15);
+	glVertex2f(-.45,.3);
+	glVertex2f(-.6,.15);
+	glEnd();
+
+	glLoadIdentity();
+
+	glScalef(1.3,1.3,0);
+	glBegin(GL_QUADS);  //tree
+	glColor3ub(128, 0, 0);
+	glVertex2f(-.5,0);
+	glVertex2f(-.5,.2);
+	glVertex2f(-.6,.2);
+	glVertex2f(-.6,0);
+	glEnd();
+
+	glBegin(GL_TRIANGLES);
+	glColor3ub(0, 102, 0);
+	glVertex2f(-.4,.15);
+	glVertex2f(-.55,.3);
+	glVertex2f(-.7,.15);
+	glEnd();
+
+	glTranslatef(0,.1,0);
+	glBegin(GL_TRIANGLES);
+	glColor3ub(0, 102, 0);
+	glVertex2f(-.4,.15);
+	glVertex2f(-.55,.3);
+	glVertex2f(-.7,.15);
+	glEnd();
+	glLoadIdentity();
+	
+	glScalef(1.3,1.3,0);
+	glTranslatef(0,.2,0);
+	glBegin(GL_TRIANGLES);
+	glColor3ub(0, 102, 0);
+	glVertex2f(-.4,.15);
+	glVertex2f(-.55,.3);
+	glVertex2f(-.7,.15);
+	glEnd();
+
+
+
+	 /*glBegin(GL_LINES);
+     glColor3ub(0,0,0);
+     glVertex2f(0.0,0.0);
+     glVertex2f(0.3,0.3);
+     glEnd();
+
+	 glTranslatef(.2,0,0);
+	 glBegin(GL_LINES);
+	 glColor3ub(0,0,0);
+     glVertex2f(0.0,0.0);
+     glVertex2f(0.3,0.3);
+	 glEnd();*/
+
+	/*glBegin(GL_QUADS);		//station room
+    glColor3ub(0, 102, 255);
+    glVertex2f(0.7,0);
+	glVertex2f(0.7,0.4);
+	glVertex2f(-0.2,0.4);
+	glVertex2f(-0.2,0);
+    glEnd();
+
+
+	 glScalef(1.5,1.5,0);
+	 glTranslatef(-.3,-.6,0);
+	 glBegin(GL_QUADS);		//station room
+    glColor3ub(0, 0, 255);
+    glVertex2f(0.7,0);
+	glVertex2f(0.7,0.4);
+	glVertex2f(-0.2,0.4);
+	glVertex2f(-0.2,0);
+    glEnd();*/
 			 
 	glFlush();
 }
