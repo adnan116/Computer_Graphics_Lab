@@ -1,9 +1,15 @@
-﻿#include <windows.h>  // for MS Windows
+#include <windows.h>  // for MS Windows
 #include <glut.h>  // GLUT, include glu.h and gl.h
 #include<math.h>
 # define PI           3.14159265358979323846
 
+GLfloat j = 0;
 
+
+void Idle()
+{
+	glutPostRedisplay();
+}
 void display() {
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -173,6 +179,8 @@ void display() {
 	glVertex2f(.86,-.3);
 	glEnd();
 
+
+
 	glBegin(GL_QUADS);  //tree
 	glColor3ub(128, 0, 0);
 	glVertex2f(-.4,0);
@@ -206,6 +214,7 @@ void display() {
 	glEnd();
 
 	glLoadIdentity();
+
 
 	glScalef(1.3,1.3,0);
 	glBegin(GL_QUADS);  //tree
@@ -611,6 +620,45 @@ void display() {
 		}
 	glEnd();
 
+	
+	glTranslatef(-1.2,0.6,0);
+	glBegin(GL_QUADS);  //windmill  stand
+	glColor3ub(191, 191, 191);
+	glVertex2f(.89,-.3);
+	glVertex2f(.89,.1);
+	glVertex2f(.86,.1);
+	glVertex2f(.86,-.3);
+	glEnd();
+	glLoadIdentity();
+
+
+	glPushMatrix();
+	glRotatef(j,0,0,1);
+	glTranslatef(-0.325,0.7,0);
+	glScalef(0.4,0.4,0);
+	glBegin(GL_TRIANGLES);  //fan
+	glColor3ub(191, 191, 191);
+	glVertex2f(.1,0);
+	glVertex2f(.4,.4);
+	glVertex2f(0,0.1);
+
+	glVertex2f(0,0.1);
+	glVertex2f(-.4,.4);
+	glVertex2f(-0.1,0);
+
+	glVertex2f(-.1,0);
+	glVertex2f(-.4,-.4);
+	glVertex2f(0,-0.1);
+
+	glVertex2f(0,-0.1);
+	glVertex2f(.4,-.4);
+	glVertex2f(0.1,0);
+
+	glEnd();
+	glPopMatrix();
+	j+=0.1;
+	glLoadIdentity();
+
 	glFlush();
 }
 
@@ -619,6 +667,7 @@ int main(int argc, char** argv) {
 	glutCreateWindow("Train Station");
 	glutInitWindowSize(320, 320);
 	glutDisplayFunc(display);
+	glutIdleFunc(Idle);
 	glutMainLoop();
 	return 0;
 }
